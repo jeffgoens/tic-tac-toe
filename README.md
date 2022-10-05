@@ -21,4 +21,4 @@ To complete the assignment, you must complete the following:
 - Use the symbols X and O.
 - On each player’s turn, that player places one of their symbols on an unoccupied space by clicking.
 - The game continues until one player places three symbols in a straight line (horizontal, vertical, or diagonal) and wins or there are no remaining available spaces and it is a draw.
-- Only have a single <div id="app"></div> in your index.HTML (try to code golf the HTML file).
+- Only have a single ``` <div id="app"></div> ```in your index.HTML (try to code golf the HTML file).
