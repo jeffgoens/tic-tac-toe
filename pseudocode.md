@@ -36,7 +36,6 @@ INPUTS:
 OUTPUTS:
 
 ACTIONS:
- G
  
 ```
 
