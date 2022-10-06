@@ -1,7 +1,5 @@
 ## Pseudocode for Tic Tac Toe
 
----
-
 ### MoSCoW:
 
 #### Must Have
@@ -36,38 +34,58 @@
 ---
 
 ### Process Flow:
-1. INITALIZE the game
-    
+1. START
+2. INITALIZE 
+    1. CREATE board layout
+    1. DECLARE winning conditions
+    1. ADD event listeners
+    1. SET state
+3. BEGIN 
+    1. SET player turn
+    1. DISPLAY current move X or O
+    1. CHECK win condition
+    1. UPDATE board state
+4. END
+    1. DISPLAY winner
+    1. RESET board state
 
-
-
-
-
-
-```
-
-INPUTS:
-
-  
-OUTPUTS:
-
-ACTIONS:
- 
-```
-
-### Event Listeners:
-
-
+---
 
 ### Functions:
-- CREATE
+```
+CREATE createElement ()
+    - DETERMINE parent and child relationships
+    - SET elements, tags and attributes
 
+CREATE boardLayout ()
+    - INITIALIZE element creation
+    
+CREATE initializeGame ()
+    - ADD event listeners for each cell(9)
+    - ADD event listener for restart button
+    - DISPLAY current players turn
+    
+CREATE updateCell ()
+   - GET cell values
+   - UPDATE cell values
+   - DETERMINE win condition
 
-- CREATE 
+CREATE changePlayer ()
+   - READ current player based on cell value
+   - DISPLAY current player turn
 
+CREATE checkWinner ()
+   - CHECK cell values
+   - DETERMINE win condition
+   - DISPLAY win status
+   - UPDATE player turn
 
-- CREATE 
+CREATE restartGame ()
+    - SET current player back to X
+    - SET cell values to empty
+    - DISPLAY players turn
 
+```
  ### START:
  ```
 
