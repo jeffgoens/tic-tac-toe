@@ -1,5 +1,7 @@
 ## Pseudocode for Tic Tac Toe
 
+---
+
 ### MoSCoW:
 
 #### Must Have
@@ -24,7 +26,21 @@
 - Turn the project into Connect Four.
 - Recreate Go.
 
- 
+---
+
+### Page Elements:
+- Title header 
+- Game board equals 3x3 grid
+- Reset game button
+
+---
+
+### Process Flow:
+1. INITALIZE the game
+    
+
+
+
 
 
 
