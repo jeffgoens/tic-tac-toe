@@ -86,14 +86,17 @@ CREATE restartGame ()
     - DISPLAY players turn
 
 ```
- ### START:
+ ### Start:
  ```
-
- 
+createElement ()
+boardLayout ()
+initializeGame ()
+updateCell ()
+changePlayer ()
+checkWinner ()
  ```
- 
- 
- ### END:
+  
+ ### End:
  ```
- 
+ restartGame ()
  ```
