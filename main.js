@@ -33,7 +33,7 @@ function boardLayout() {                                            // function 
     createElement(mainContainer, 'div', '', 'card', 'mainCard', '', '',);               // card
     createElement(mainCard, 'div', '', 'row', 'rowOne', '', 'height: 150px',);          // row 1
     createElement(rowOne, 'div', '', 'col', 'columnOneA', '', '',);                     // column
-    createElement(columnOneA, 'div', '', 'cell', '', '0', 'height: 125px',);            // cell or placeholder for X and o with based on cellIndex which returns position of a cell
+    createElement(columnOneA, 'div', '', 'cell', '', '0', 'height: 125px',);            // cell or placeholder for X and o based on cellIndex which returns position of a cell
     createElement(rowOne, 'div', '', 'col', 'columnOneB', '', '',);
     createElement(columnOneB, 'div', '', 'cell', '', '1', 'height: 125px',);
     createElement(rowOne, 'div', '', 'col', 'columnOneC', '', '',);
@@ -80,10 +80,10 @@ function intializeGame() {
    
 }
 
-function cellClicked() {                                            // function that 
-    const cellIndex = this.getAttribute("cellIndex");
+function cellClicked() {                                            // function that updates cell and checks for winner
+    const cellIndex = this.getAttribute("cellIndex");               // gets attribute of cellIndex
 
-    if (boardPlaceholder[cellIndex] != "" || !gameRunning) {
+    if (boardPlaceholder[cellIndex] != "" || !gameRunning) {        
         return;
     }
     updateCell(this, cellIndex);
@@ -103,16 +103,16 @@ function changePlayer() {
 function checkWinner() {
     let roundWon = false;
 
-    for(let i = 0; i < winConditions.length; i++) {
-        const condition = winConditions[i];
-        const cellA = boardPlaceholder[condition[0]];
-        const cellB = boardPlaceholder[condition[1]];
-        const cellC = boardPlaceholder[condition[2]];
+    for(let i = 0; i < winConditions.length; i++) {                          // iterates over the winConditions array
+        const cellValue = winConditions[i];     
+        const cellA = boardPlaceholder[cellValue[0]];
+        const cellB = boardPlaceholder[cellValue[1]];
+        const cellC = boardPlaceholder[cellValue[2]];
 
-        if(cellA == "" || cellB == "" || cellC == "") {
+        if(cellA == "" || cellB == "" || cellC == "") {                     // game continues if cell value has an empty string
             continue;
         }
-        if(cellA == cellB && cellB == cellC) {
+        if(cellA == cellB && cellB == cellC) {                              // if cell values match, game is won, if loop breaks
             roundWon = true;
             break;
         }
