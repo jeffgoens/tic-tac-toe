@@ -96,7 +96,7 @@ function updateCell(cell, index) {
 }
 
 function changePlayer() {
-    currentPlayer = (currentPlayer == "X") ? "O" : "X";
+    currentPlayer = (currentPlayer == "X") ? "O" : "X";             // if condition is true, executes first expression
     statusText.innerText = `Player ${currentPlayer}'s turn`;             
 }
 
@@ -122,7 +122,7 @@ function checkWinner() {
         statusText.innerText = `Player ${currentPlayer} wins!`;                      
         gameRunning = false;
     }
-    else if(!boardPlaceholder.includes("")) {
+    else if(!boardPlaceholder.includes("")) {                               // game is a draw if there are no empty strings
         statusText.innerText = 'Game is a draw!';                       
         gameRunning = false;
     }
@@ -131,7 +131,7 @@ function checkWinner() {
     }
 }
 
-function restartGame() {
+function restartGame() {                                                    
     currentPlayer = "X";
     boardPlaceholder = ["", "", "", "", "", "", "", "", ""];
     statusText.innerText = `Player ${currentPlayer} starts the game.`;                     
