@@ -56,7 +56,7 @@ function boardLayout() {                                            // function 
     createElement(columnThreeC, 'div', '', 'cell', '', '8', 'height: 125px',);
 
     createElement(mainContainer, 'h2', '', '', 'statusText', '', '',);                  // h2 that renders game status text, i.e., who's turn, etc
-    createElement(mainContainer, 'button', 'Restart', 'btn btn-outline-info btn-lg', 'restartBtn', '', '',);   // button
+    createElement(mainContainer, 'button', 'Restart', 'btn btn-outline-dark btn-lg', 'restartBtn', '', '',);   // button
 
 }
 
