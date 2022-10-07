@@ -11,7 +11,7 @@ function createElement(parentEl, tag, text, className, idName, cellIndexName, st
         element.setAttribute('id', idName);                      // Set id attribute of element = idName
     }
 
-    if (cellIndexName) {
+    if (cellIndexName) {                                        
         element.setAttribute('cellIndex', cellIndexName);
     }
 
@@ -56,7 +56,7 @@ function boardLayout() {                                            // function 
     createElement(columnThreeC, 'div', '', 'cell', '', '8', 'height: 125px',);
 
     createElement(mainContainer, 'h2', '', '', 'statusText', '', '',);                  // h2 that renders game status text, i.e., who's turn, etc
-    createElement(mainContainer, 'button', 'Restart', 'btn btn-outline-dark btn-lg', 'restartBtn', '', '',);   // button
+    createElement(mainContainer, 'button', 'Restart', 'btn btn-outline-dark btn-lg', 'restartBtn', '', '',);   // button 
 
 }
 
