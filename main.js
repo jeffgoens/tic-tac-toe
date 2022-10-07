@@ -1,6 +1,6 @@
 function createElement(parentEl, tag, text, className, idName, cellIndexName, styleName) {
 
-    let element = document.createElement(tag)                    // creates element based on tag input    Example 'div' creates a div element
+    let element = document.createElement(tag)                    // creates element based on tag input, example 'div' creates a div element
     element.innerText = text                                     // Takes value of text and places it in innerText of the element being created
 
     if (className) {                                             // If className exists
@@ -20,14 +20,14 @@ function createElement(parentEl, tag, text, className, idName, cellIndexName, st
     }
 
 
-    parentEl.appendChild(element)                                 // parentEl = parent element    places the element being created inside parentEl
+    parentEl.appendChild(element)                                 // parentEl = parent element, places the element being created inside parentEl
 }
 
-const mainContainer = document.getElementById('main')            // Main container div
+const mainContainer = document.getElementById('main')             // Main container div
 
 
 
-function boardLayout() {
+function boardLayout() {                                            // function that creates the needed HTML elements
 
     createElement(mainContainer, 'h1', 'Tic Tac Toe', '', '', '', '',);
     createElement(mainContainer, 'div', '', 'card', 'mainCard', '', '',);
@@ -70,22 +70,22 @@ const restartBtn = document.querySelector("#restartBtn");
 const winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 let boardPlaceholder = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
-let running = false;
+let gameRunning = false;
 
 intializeGame();
 
 function intializeGame() {
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
     restartBtn.addEventListener("click", restartGame);
-    statusText.innerText = `${currentPlayer}'s turn`;               // updated textContent to innerText
-    running = true;
-    console.log(currentPlayer);
+    statusText.innerText = `Player ${currentPlayer} starts the game.`;               
+    gameRunning = true;
+   
 }
 
 function cellClicked() {
     const cellIndex = this.getAttribute("cellIndex");
 
-    if (boardPlaceholder[cellIndex] != "" || !running) {
+    if (boardPlaceholder[cellIndex] != "" || !gameRunning) {
         return;
     }
     updateCell(this, cellIndex);
@@ -94,12 +94,12 @@ function cellClicked() {
 
 function updateCell(cell, index) {
     boardPlaceholder[index] = currentPlayer;
-    cell.innerText = currentPlayer;                               // updated textContent to innerText
+    cell.innerText = currentPlayer;                               
 }
 
 function changePlayer() {
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
-    statusText.innerText = `${currentPlayer}'s turn`;             // updated textContent to innerText
+    statusText.innerText = `Player ${currentPlayer}'s turn`;             
 }
 
 function checkWinner() {
@@ -121,12 +121,12 @@ function checkWinner() {
     }
 
     if(roundWon) {
-        statusText.innerText = `${currentPlayer} wins!`;                 // updated textContent to innerText     
-        running = false;
+        statusText.innerText = `${currentPlayer} wins!`;                      
+        gameRunning = false;
     }
     else if(!boardPlaceholder.includes("")) {
-        statusText.innerText = 'Game is a Draw!';                       // updated textContent to innerText
-        running = false;
+        statusText.innerText = 'Game is a draw!';                       
+        gameRunning = false;
     }
     else {
         changePlayer();
@@ -136,7 +136,7 @@ function checkWinner() {
 function restartGame() {
     currentPlayer = "X";
     boardPlaceholder = ["", "", "", "", "", "", "", "", ""];
-    statusText.innerText = `${currentPlayer}'s turn`;                     // updated textContent to innerText
-    cells.forEach(cell => cell.innerText = "");                           // updated textContent to innerText
-    running = true;
+    statusText.innerText = `Player ${currentPlayer} starts the game.`;                     
+    cells.forEach(cell => cell.innerText = "");                           
+    gameRunning = true;
 }
