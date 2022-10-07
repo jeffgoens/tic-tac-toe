@@ -29,25 +29,25 @@ const mainContainer = document.getElementById('main')             // Main contai
 
 function boardLayout() {                                            // function that creates the needed HTML elements
 
-    createElement(mainContainer, 'h1', 'Tic Tac Toe', '', '', '', '',);
-    createElement(mainContainer, 'div', '', 'card', 'mainCard', '', '',);
-    createElement(mainCard, 'div', '', 'row', 'rowOne', '', 'height: 150px',);
-    createElement(rowOne, 'div', '', 'col', 'columnOneA', '', '',);
-    createElement(columnOneA, 'div', '', 'cell', '', '0', 'height: 125px',);
+    createElement(mainContainer, 'h1', 'Tic Tac Toe', '', '', '', '',);                 // header
+    createElement(mainContainer, 'div', '', 'card', 'mainCard', '', '',);               // card
+    createElement(mainCard, 'div', '', 'row', 'rowOne', '', 'height: 150px',);          // row 1
+    createElement(rowOne, 'div', '', 'col', 'columnOneA', '', '',);                     // column
+    createElement(columnOneA, 'div', '', 'cell', '', '0', 'height: 125px',);            // cell or placeholder for X and o with based on cellIndex which returns position of a cell
     createElement(rowOne, 'div', '', 'col', 'columnOneB', '', '',);
     createElement(columnOneB, 'div', '', 'cell', '', '1', 'height: 125px',);
     createElement(rowOne, 'div', '', 'col', 'columnOneC', '', '',);
     createElement(columnOneC, 'div', '', 'cell', '', '2', 'height: 125px',);
 
-    createElement(mainCard, 'div', '', 'row', 'rowTwo', '', 'height: 150px',);
-    createElement(rowTwo, 'div', '', 'col', 'columnTwoA', '', '',);
+    createElement(mainCard, 'div', '', 'row', 'rowTwo', '', 'height: 150px',);          // row 2
+    createElement(rowTwo, 'div', '', 'col', 'columnTwoA', '', '',);                     
     createElement(columnTwoA, 'div', '', 'cell', '', '3', 'height: 125px',);
     createElement(rowTwo, 'div', '', 'col', 'columnTwoB', '', '',);
     createElement(columnTwoB, 'div', '', 'cell', '', '4', 'height: 125px',);
     createElement(rowTwo, 'div', '', 'col', 'columnTwoC', '', '',);
     createElement(columnTwoC, 'div', '', 'cell', '', '5', 'height: 125px',);
 
-    createElement(mainCard, 'div', '', 'row', 'rowThree', '', 'height: 150px',);
+    createElement(mainCard, 'div', '', 'row', 'rowThree', '', 'height: 150px',);        // row 3
     createElement(rowThree, 'div', '', 'col', 'columnThreeA', '', '',);
     createElement(columnThreeA, 'div', '', 'cell', '', '6', 'height: 125px',);
     createElement(rowThree, 'div', '', 'col', 'columnThreeB', '', '',);
@@ -55,24 +55,22 @@ function boardLayout() {                                            // function 
     createElement(rowThree, 'div', '', 'col', 'columnThreeC', '', '',);
     createElement(columnThreeC, 'div', '', 'cell', '', '8', 'height: 125px',);
 
-    createElement(mainContainer, 'h2', '', '', 'statusText', '', '',);
-    createElement(mainContainer, 'button', 'Restart', 'btn btn-outline-info btn-lg', 'restartBtn', '', '',);
-
-  
+    createElement(mainContainer, 'h2', '', '', 'statusText', '', '',);                  // h2 that renders game status text, i.e., who's turn, etc
+    createElement(mainContainer, 'button', 'Restart', 'btn btn-outline-info btn-lg', 'restartBtn', '', '',);   // button
 
 }
 
-boardLayout();
+boardLayout();                                                                          // call function for board layout
 
 const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
-const winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
-let boardPlaceholder = ["", "", "", "", "", "", "", "", ""];
+const winConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]; // winning combinations
+let boardPlaceholder = ["", "", "", "", "", "", "", "", ""];                                                    // places empty value into each playing cell
 let currentPlayer = "X";
 let gameRunning = false;
 
-intializeGame();
+intializeGame();                                                        // function that initializes game and creates event listeners                                                              
 
 function intializeGame() {
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
@@ -82,7 +80,7 @@ function intializeGame() {
    
 }
 
-function cellClicked() {
+function cellClicked() {                                            // function that 
     const cellIndex = this.getAttribute("cellIndex");
 
     if (boardPlaceholder[cellIndex] != "" || !gameRunning) {
@@ -121,7 +119,7 @@ function checkWinner() {
     }
 
     if(roundWon) {
-        statusText.innerText = `${currentPlayer} wins!`;                      
+        statusText.innerText = `Player ${currentPlayer} wins!`;                      
         gameRunning = false;
     }
     else if(!boardPlaceholder.includes("")) {
